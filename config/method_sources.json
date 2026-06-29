@@ -1,0 +1,47 @@
+{
+  "sources": [
+    {
+      "name": "HUMAnN releases",
+      "type": "github_releases",
+      "url": "https://api.github.com/repos/biobakery/humann/releases",
+      "module": "functional_profiling",
+      "adoption_stage": "watch"
+    },
+    {
+      "name": "nf-core/rnaseq releases",
+      "type": "github_releases",
+      "url": "https://api.github.com/repos/nf-core/rnaseq/releases",
+      "module": "rna_qc_quantification",
+      "adoption_stage": "watch"
+    },
+    {
+      "name": "SqueezeMeta releases",
+      "type": "github_releases",
+      "url": "https://api.github.com/repos/jtamames/SqueezeMeta/releases",
+      "module": "metatranscriptome_denovo_and_hybrid",
+      "adoption_stage": "benchmark"
+    },
+    {
+      "name": "SAMSA2 releases",
+      "type": "github_releases",
+      "url": "https://api.github.com/repos/transcript/samsa2/releases",
+      "module": "diamond_functional_annotation",
+      "adoption_stage": "optional"
+    },
+    {
+      "name": "SortMeRNA releases",
+      "type": "github_releases",
+      "url": "https://api.github.com/repos/sortmerna/sortmerna/releases",
+      "module": "rrna_split",
+      "adoption_stage": "watch"
+    },
+    {
+      "name": "Nature metatranscriptomics search",
+      "type": "static_watch",
+      "url": "https://www.nature.com/search?q=metatranscriptomics",
+      "module": "method_discovery",
+      "adoption_stage": "watch"
+    }
+  ]
+}
+

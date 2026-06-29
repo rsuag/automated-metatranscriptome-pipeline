@@ -1,0 +1,4 @@
+sample,condition,replicate,fastq_1,fastq_2,strandedness,host_ref,matched_metagenome_reads_1,matched_metagenome_reads_2,gene_catalog,mag_catalog,notes
+S01,control,1,data/S01_R1.fastq.gz,data/S01_R2.fastq.gz,auto,/path/to/host.fa,data/S01_DNA_R1.fastq.gz,data/S01_DNA_R2.fastq.gz,/path/to/gene_catalog.fna,/path/to/mags/,example paired RNA DNA sample
+S02,treatment,1,data/S02_R1.fastq.gz,data/S02_R2.fastq.gz,auto,/path/to/host.fa,data/S02_DNA_R1.fastq.gz,data/S02_DNA_R2.fastq.gz,/path/to/gene_catalog.fna,/path/to/mags/,example paired RNA DNA sample
+

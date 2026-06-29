@@ -1,0 +1,7 @@
+name,type,path,required_for,version,notes
+sortmerna_rrna,rrna,/path/to/sortmerna_db,qc,unknown,rRNA split and residual tracking
+humann_chocophlan,nucleotide,/path/to/chocophlan,functional,unknown,HUMAnN nucleotide search
+humann_uniref,protein,/path/to/uniref,functional,unknown,HUMAnN translated search
+metaphlan_db,taxonomy,/path/to/metaphlan_db,functional,unknown,taxonomic prescreen
+custom_marker_hmms,hmm,/path/to/custom_markers.hmm,specialized,unknown,domain-specific marker expression
+

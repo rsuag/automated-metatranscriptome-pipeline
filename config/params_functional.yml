@@ -1,0 +1,26 @@
+input: "config/samplesheet_metat.csv"
+outdir: "results/functional"
+
+run_humann: true
+run_samsa2_style_diamond: false
+run_custom_hmm_markers: true
+retain_unmapped_reads: true
+split_stratified_tables: true
+
+humann:
+  nucleotide_database: "/path/to/chocophlan"
+  protein_database: "/path/to/uniref"
+  metaphlan_database: "/path/to/metaphlan_db"
+  threads: 16
+
+custom_markers:
+  hmm_database: "/path/to/custom_markers.hmm"
+  marker_groups:
+    - nitrogen
+    - sulfur
+    - methane
+    - carbon_fixation
+    - phosphorus
+    - arg
+    - virulence
+

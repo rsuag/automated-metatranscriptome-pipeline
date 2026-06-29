@@ -1,0 +1,22 @@
+input: "config/samplesheet_metat.csv"
+outdir: "results/expression"
+
+quantification:
+  route: auto
+  preferred_reference: gene_catalog
+  multimapping_policy: report_and_fractional_count
+  strandedness: auto
+  min_reads_for_modeling: 1000000
+
+activity_layer:
+  require_matched_dna: true
+  normalize_rna_by_dna_gene_abundance: true
+  report_raw_rna_counts: true
+  report_gene_length_normalized_expression: true
+
+differential_modeling:
+  default_method: deseq2
+  compositional_sensitivity_check: true
+  require_metadata_formula: false
+  formula: "~ condition"
+

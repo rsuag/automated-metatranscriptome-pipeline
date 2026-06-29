@@ -1,0 +1,44 @@
+project_name: automated_metatranscriptome
+container_profile: docker
+results_dir: results
+work_dir: work
+
+inputs:
+  samplesheet: config/samplesheet_metat.csv
+  databases: config/databases.csv
+
+outputs:
+  qc_dir: results/qc
+  functional_dir: results/functional
+  expression_dir: results/expression
+  report_dir: results/report
+
+routes:
+  enable_rna_only: true
+  enable_matched_metagenome: true
+  enable_host_associated: true
+  enable_denovo: true
+  enable_rrna_activity: true
+  enable_orphan_read_triage: true
+
+automation:
+  route_plan_report: results/report/route_plan.md
+  method_radar_report: results/report/method_radar.md
+  methods_audit_report: results/report/methods_audit.md
+  adoption_stages:
+    - watch
+    - benchmark
+    - optional
+    - default
+
+interpretation:
+  max_rrna_fraction_for_mrna_focus: 0.35
+  min_microbial_mrna_reads: 1000000
+  require_matched_dna_for_activity_ratio: true
+  evidence_levels:
+    - active_taxon_signal
+    - expressed_gene
+    - expressed_pathway
+    - dna_normalized_activity
+    - validated_process
+
