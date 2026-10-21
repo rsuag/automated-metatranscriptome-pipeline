@@ -1,18 +1,18 @@
 # Automated Metatranscriptome Pipeline
 
-一个面向公共复用和收藏传播的自动化宏转录组分析平台。它不是简单把 RNA-seq、HUMAnN、SqueezeMeta 或 SAMSA2 串起来，而是专门解决宏转录组最容易踩坑的地方：rRNA 残留、宿主污染、DNA/RNA 证据混淆、参考库偏倚、低丰度表达、差异表达误判，以及“检测到转录本就说过程发生”的过度解释。
+A reusable metatranscriptomics analysis scaffold focused on common failure points: residual rRNA, host contamination, confusion between DNA and RNA evidence, reference-database bias, low-abundance expression, differential-expression errors, and claims that transcript detection alone proves a biological process.
 
 ## Why This Should Be Useful
 
-宏转录组用户通常卡在这些问题上：
+Metatranscriptomics users often face these questions:
 
-- **不是所有 RNA reads 都该进入同一个分析口径**：rRNA 可用于活跃群落线索，mRNA 才更适合功能表达。
-- **只有 RNA 没有 DNA 时，很难区分“表达升高”和“生物量变多”**。
-- **参考库能解释的 reads 有偏倚**，未比对 reads 可能正是新功能、新病毒或未培养类群。
-- **常规 RNA-seq pipeline 假设单一参考基因组**，但宏转录组是多物种、多基因组、多拷贝、多映射场景。
-- **常规宏基因组 pipeline 偏向潜能**，但宏转录组要报告 activity evidence，又不能越界成 process proof。
+- **RNA reads have different roles:** rRNA can inform active-community composition; mRNA is more suitable for functional-expression analysis.
+- **RNA-only studies cannot readily separate higher expression from greater biomass** without matched DNA evidence.
+- **Reference databases are incomplete:** unmapped reads may represent novel functions, viruses, or uncultivated taxa.
+- **Standard RNA-seq pipelines often assume one reference organism:** metatranscriptomes involve many taxa, genomes, gene copies, and ambiguous mappings.
+- **Metagenomics measures potential:** metatranscriptomics adds expression evidence but does not establish a process rate by itself.
 
-本项目的过人之处是把这些判断前置成自动化规则：先判断项目适合走哪条路线，再运行对应模块，最后用证据等级约束解释。
+The project makes these decisions explicit: choose an appropriate route, run its modules, and keep interpretations within the available evidence.
 
 ## Main Workflow
 
@@ -41,13 +41,13 @@ flowchart TD
 
 ## What Makes It Different
 
-- **Route planner**: 自动判断 RNA-only、matched metagenome、host-associated、de novo、gene-catalog-guided 等分析路线。
-- **rRNA ledger**: rRNA 不只是“删掉”，而是记录残留比例、分类用途和 mRNA 损失风险。
-- **RNA/DNA activity layer**: 有配对宏基因组时，自动把 transcript abundance 与 gene/genome abundance 分开，避免把丰度变化误读成表达变化。
-- **Orphan-read triage**: 对未比对 reads 单独建队列，面向新基因、病毒、ARG、MGE 或数据库缺口，而不是直接丢弃。
-- **Evidence ladder**: 把 active taxa、expressed gene、pathway transcript、RNA/DNA activity、process validation 分成不同证据等级。
-- **Method radar**: 周期性追踪 HUMAnN、nf-core/rnaseq、SqueezeMeta、SAMSA2、SortMeRNA、DRAM/eggNOG 等来源，候选方法先进入 review queue，不盲目升级默认流程。
-- **Shareable first page**: README 第一屏给出清晰流程图、解决的问题和一键命令，面向 GitHub 收藏而设计。
+- **Route planner:** choose among RNA-only, matched metagenome, host-associated, de novo, and gene-catalog-guided routes.
+- **rRNA ledger:** record residual rRNA, its taxonomic use, and possible mRNA loss instead of hiding discarded reads.
+- **RNA/DNA activity layer:** keep transcript abundance separate from gene or genome abundance when matched metagenomes exist.
+- **Orphan-read triage:** examine unmapped reads for novel genes, viruses, ARGs, MGEs, or database gaps.
+- **Evidence ladder:** distinguish active-taxon signals, expressed genes, pathway transcripts, RNA/DNA activity, and process validation.
+- **Method radar:** track tools such as HUMAnN, nf-core/rnaseq, SqueezeMeta, SAMSA2, SortMeRNA, and DRAM/eggNOG; review candidates before changing defaults.
+- **README overview:** show the workflow, its use cases, and the first runnable commands near the top.
 
 ## Quick Start
 
